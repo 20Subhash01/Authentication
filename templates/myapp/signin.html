@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+
+Sign In
+
+{% endblock title %}
+
+{% block head %}
+
+{% comment %} <link rel="stylesheet" href="{% static 'myapp/style/signup.css' %}"> {% endcomment %}
+
+{% endblock head %}
+{% block body %}
+
+
+<!-- Signin form section -->
+<div class="form-container">
+
+  <!-- Form for user signin with the action set to /signin and using the POST method -->
+  <form action="/signin" method="post">
+    {% csrf_token %} <!-- CSRF token for form security -->
+    
+    <h1>LogIn </h1>
+
+
+    <!-- Input field for the username -->
+    <label for="">Username: <input type="text" name="uname" id="uname" placeholder="Enter your Username"></label><br>
+
+    <!-- Input field for the password -->
+    <label for="">Password: <input type="password" name="pass1" id="pass1" placeholder="Enter your Password"></label><br>
+
+    <!-- Submit button to initiate the signin process -->
+    <button type="submit" class="form-button">Log In</button>
+
+  </form>
+  <p>Forgot <a href="{% url "password_reset" %}">Password</a>?</p>
+  <!-- Link to the signup page for new users -->
+  <p> Don't have an account?  <a href="/signup">Register Now</a></p>    <!-- link to the signin page if already registered -->
+
+
+</div>
+
+
+
+{% endblock body %}

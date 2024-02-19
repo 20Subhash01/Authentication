@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Home page
+
+{% endblock title %}
+{% block body %}
+
+
+<!-- CSRF token for form security -->
+{% comment %} {% csrf_token %} {% endcomment %}
+  
+
+
+<!-- Check if the user is authenticated -->
+{% if user.is_authenticated %}
+
+<!-- Display a welcome message and a logout button if the user is authenticated -->
+<h1> Hello ! {{fname}} </h1>
+<h3>You are Successfully Logged in. </h3>
+<a href="/signout"><button type="submit">Sign Out</button></a>
+
+{% else %}
+
+<!-- Display signup and signin buttons if the user is not authenticated -->
+<a href="/signup"><button type="submit">Sign Up</button></a>
+<a href="/signin"><button type="submit">Sign In</button></a>
+
+{% endif %}
+
+
+{% endblock body %}

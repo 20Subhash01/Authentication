@@ -1,0 +1,46 @@
+<!--
+    HTML template for the confirmation email sent to users for account activation.
+    This template includes placeholders for dynamic content such as user's name, activation link, and domain.
+
+    - The email contains a greeting message with the user's name.
+    - It provides instructions to activate the account.
+    - It includes an "Activate Now" button linking to the activation URL.
+    - If the link doesn't work, it provides a URL that the user can copy and paste into their browser.
+    - It includes a message thanking the user and offering support.
+-->
+
+<div style="max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+    <!-- Heading -->
+    <h2 style="text-align: center; color: #333;">Welcome to Subhash Authentication Web App!</h2>
+
+    <!-- Greeting message with the user's name -->
+    <p>Hello {{ name }},</p>
+
+    <!-- Introduction -->
+    <p>We're excited to welcome you to Subhash Authentication Web App! Your account is now ready for activation.</p>
+
+    <!-- Activation instructions -->
+    <p>To get started, simply click on the link below to activate your account and unlock access to our services:</p>
+
+    <!-- Activate Now button linking to the activation URL -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Activate Now</a>
+    </div>
+
+    <!-- Alternative activation URL -->
+    <p>If the link doesn't work, you can copy and paste the following URL into your web browser:</p>
+
+    <!-- Alternative activation URL -->
+    <p>http://{{ domain }}{% url 'activate' uidb64=uid token=token %}</p>
+
+    <!-- Conclusion -->
+    <p>Once your account is activated, you'll be able to enjoy all the benefits and features we offer.</p>
+
+    <!-- Support message -->
+    <p>If you have any questions or need assistance, feel free to reach out to our support team at XXXXXXXXXX.</p>
+
+    <!-- Closing message -->
+    <p>We're thrilled to have you on board and look forward to serving you!</p>
+
+</div>

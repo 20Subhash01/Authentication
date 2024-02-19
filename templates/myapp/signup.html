@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Sign Up {% endblock title %}
+{% block head %}
+
+{% endblock head %}
+
+{% block body %}
+
+<!-- Signup form section -->
+<div class="form-container">
+
+    <!-- Form for user registration with the action set to /signup and using the POST method -->
+    
+    <form  action="/signup" method="post">
+      
+      {% csrf_token %} <!-- CSRF token for form security -->
+
+      <h1>Create an Account</h1>
+
+      <label for="uname">Username:</label>
+      <input type="text" name="uname" id="uname" placeholder="Create your Username*" minlength="4" required >      <!-- Input field for the username -->
+      
+      
+      <label for="fname">First name:</label>
+      <input type="text" name="fname" id="fname" placeholder="Enter Your First name*" required>      <!-- Input field for the first name -->
+      
+      
+      <label for="lname">Last name:</label>
+      <input type="text" name="lname" id="lname" placeholder="Enter Your Last name">      <!-- Input field for the last name -->
+      
+      
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" placeholder="Enter Your email" required>      <!-- Input field for the email -->
+      
+      
+      <label for="pass1">Password:</label>
+      <input type="password" name="pass1" id="pass1" placeholder="Create Password" required minlength="4">      <!-- Input field for the password -->
+      
+      
+      <label for="pass2">Confirm Password: </label>
+      <input type="password" name="pass2" id="pass2" placeholder="Confirm Password" required minlength="4">      <!-- Input field to confirm the password -->
+
+      <label for="t&c"><input type="checkbox" name="" id="t&c" required placeholder="accept"> I accept all terms and conditions</label for="">
+
+      
+      <button type="submit" class="form-button">Register Now</button>      <!-- Submit button to complete the signup process -->
+
+    
+    </form>
+   
+    <p>Already have an account?  <a href="/signin">Login now</a></p>    <!-- link to the signin page if already registered -->
+
+  
+  </div>
+
+{% endblock body %}
+{% block script %}
+
+{% endblock script %}
